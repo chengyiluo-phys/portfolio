@@ -123,16 +123,18 @@
           <p><span style="color: #111; font-size: 1.5em; font-weight: bold;">Recording</span><br></p>
           <p style="font-weight:600; color:#274472; margin-bottom:0.6em;">Boeing Quantum Creators Prize Symposium — Session 1</p>
           <p style="font-size:0.95em; color:#555; margin-top:0;">The recording begins at Chengyi Luo's talk (37:48).</p>
-          <div style="width:100%; max-width:720px; aspect-ratio:16 / 9; margin-bottom:1.5em;">
-            <iframe
-              src="https://www.youtube.com/embed/xrz7_Cn1Xkc?start=2268&amp;playsinline=1&amp;origin=https%3A%2F%2Fchengyiluo-phys.github.io&amp;widget_referrer=https%3A%2F%2Fchengyiluo-phys.github.io%2Fportfolio%2Fpresentations%2F"
-              title="Boeing Quantum Creators Prize Symposium — Session 1"
-              style="width:100%; height:100%; border:0;"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen>
-            </iframe>
+          <div class="recording-player" style="width:100%; max-width:720px; aspect-ratio:16 / 9; margin-bottom:1.5em;">
+            <button
+              type="button"
+              onclick="loadRecording(this)"
+              aria-label="Play Boeing Quantum Creators Prize Symposium — Session 1 from 37:48"
+              style="position:relative; display:block; width:100%; height:100%; padding:0; border:0; background:#111; cursor:pointer; overflow:hidden;">
+              <img
+                src="../images/boeing-quantum-creators-38m23s.jpg"
+                alt="Title slide from Chengyi Luo's presentation at 38:23"
+                style="display:block; width:100%; height:100%; object-fit:cover;">
+              <span aria-hidden="true" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; width:72px; height:52px; border-radius:14px; background:rgba(220,0,0,0.92); color:white; font-size:30px; line-height:1; padding-left:4px; box-shadow:0 2px 8px rgba(0,0,0,0.35);">▶</span>
+            </button>
           </div>
           <p style="font-size:0.9em; color:#555; margin-top:0.5em;">
             If the embedded player is unavailable, <a href="https://youtu.be/xrz7_Cn1Xkc?t=2268" target="_blank" rel="noopener" style="color:#274472;">watch the recording on YouTube from 37:48</a>.
@@ -292,6 +294,18 @@
 
     
 
+  <script>
+    function loadRecording(button) {
+      var player = document.createElement('iframe');
+      player.src = 'https://www.youtube.com/embed/xrz7_Cn1Xkc?start=2268&autoplay=1&playsinline=1&origin=https%3A%2F%2Fchengyiluo-phys.github.io&widget_referrer=https%3A%2F%2Fchengyiluo-phys.github.io%2Fportfolio%2Fpresentations%2F';
+      player.title = 'Boeing Quantum Creators Prize Symposium — Session 1';
+      player.style.cssText = 'width:100%; height:100%; border:0;';
+      player.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      player.referrerPolicy = 'strict-origin-when-cross-origin';
+      player.allowFullscreen = true;
+      button.parentNode.replaceChildren(player);
+    }
+  </script>
   <script src="../dist/js/app.3fc0f988d21662902933.js"></script>
 
 
