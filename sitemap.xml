@@ -15,9 +15,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://chengyiluo-phys.github.io/portfolio/404.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.1</priority>
-  </url>
 </urlset>
