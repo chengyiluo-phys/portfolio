@@ -46,6 +46,18 @@
   .email:hover .fa-envelope {
     color: #4682b4 !important;
   }
+  .publications-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+  .publications-layout > section {
+    min-width: 0;
+  }
+  .publications-layout > section > p:first-child {
+    margin-top: 0;
+  }
   .dropdown-news-menu {
     display: none;
     position: absolute;
@@ -72,6 +84,15 @@
       width: auto !important;
       box-sizing: border-box !important;
       overflow-x: auto !important;
+    }
+  }
+  @media (max-width: 900px) {
+    .publications-layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+    }
+    .publications-layout > section + section {
+      margin-top: 1.5rem;
     }
   }
 </style>
@@ -138,8 +159,8 @@
 
     
   <main class="pb7" role="main" style="padding-bottom: 3em; margin-bottom: 3em;">
-    <div class="flex-l mt2 mw8 center">
-      <article class="center cf pv3 ph3 ph4-ns mw7">
+    <div class="flex-l mt2 mw8 center" style="width:100%; max-width:1200px;">
+      <article class="center cf pv3 ph3 ph4-ns mw7" style="width:100%; max-width:1200px;">
         <!-- <header>
           <h1 class="f3" style="font-size:2.25rem;">Publications</h1>
         </header> -->
@@ -152,7 +173,10 @@
             <li>Quantum information processing***</li>
           </ul> -->
           
-          <p><span style="color: #111; font-size: 1.5em; font-weight: bold;">Publications</span><br></p>
+          <div class="publications-layout">
+            <section aria-labelledby="publications-heading">
+          <p><span id="publications-heading" style="color: #111; font-size: 1.5em; font-weight: bold;">Publications</span><br></p>
+          <p style="font-size:0.95em; color:#555; margin-top:0.5em;"><sup style='color:#e65100; font-size:0.5em; vertical-align:-0.05em; margin-left:0.18em;'>★</sup> Equal contributions</p>
           <ul style="margin-bottom: 0;">
             
             <!------------->
@@ -434,9 +458,10 @@
               </div>
             </li>
           </ul>
-          <p style="font-size:0.95em; color:#555; margin-top:0.5em;"><sup style='color:#e65100; font-size:0.5em; vertical-align:-0.05em; margin-left:0.18em;'>★</sup> Equal contributions</p>
+            </section>
 
-          <p><span style="color: #111; font-size: 1.5em; font-weight: bold;">Preprints</span></p>
+            <section aria-labelledby="preprints-heading">
+          <p><span id="preprints-heading" style="color: #111; font-size: 1.5em; font-weight: bold;">Preprints</span></p>
           <ul style="margin-bottom: 0;">
 
             <!------------->
@@ -531,6 +556,8 @@
               </div>
             </li>
           </ul>
+            </section>
+          </div>
 
         </div>
       </article>

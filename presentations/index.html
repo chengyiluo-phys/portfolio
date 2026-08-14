@@ -47,6 +47,38 @@
   .email:hover .fa-envelope {
     color: #4682b4 !important;
   }
+  .presentations-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "talks recording"
+      "talks posters"
+      "talks .";
+    column-gap: 3rem;
+    row-gap: 2rem;
+    align-items: start;
+  }
+  .presentations-layout > section {
+    min-width: 0;
+  }
+  .presentations-layout > section > p:first-child {
+    margin-top: 0;
+  }
+  .talks-section { grid-area: talks; }
+  .recording-section { grid-area: recording; }
+  .posters-section { grid-area: posters; }
+  @media (max-width: 900px) {
+    .presentations-layout {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        "recording"
+        "talks"
+        "posters";
+      gap: 1.5rem 0;
+    }
+  }
 </style>
 	
   </head>
@@ -113,14 +145,16 @@
 
    
   <main class="pb7" role="main" style="padding-bottom: 3em; margin-bottom: 3em;">
-    <div class="flex-l mt2 mw8 center">
-      <article class="center cf pv3 ph3 ph4-ns mw7">
+    <div class="flex-l mt2 mw8 center" style="width:100%; max-width:1200px;">
+      <article class="center cf pv3 ph3 ph4-ns mw7" style="width:100%; max-width:1200px;">
         <!-- <header>
           <h1 class="f3" style="font-size:2.25rem;">Presentations</h1>
         </header> -->
         
         <div class="nested-copy-line-height lh-copy f5 nested-links nested-img mid-gray">
-          <p><span style="color: #111; font-size: 1.5em; font-weight: bold;">Recording</span><br></p>
+          <div class="presentations-layout">
+          <section class="recording-section" aria-labelledby="recording-heading">
+          <p><span id="recording-heading" style="color: #111; font-size: 1.5em; font-weight: bold;">Recording</span><br></p>
           <p style="font-weight:600; color:#274472; margin-bottom:0.6em;">Boeing Quantum Creators Prize Symposium — Session 1</p>
           <p style="font-size:0.95em; color:#555; margin-top:0;">The recording begins at Chengyi Luo's talk (37:48).</p>
           <div class="recording-player" style="width:100%; max-width:720px; aspect-ratio:16 / 9; margin-bottom:1.5em;">
@@ -136,11 +170,10 @@
               <span aria-hidden="true" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; width:72px; height:52px; border-radius:14px; background:rgba(220,0,0,0.92); color:white; font-size:30px; line-height:1; padding-left:4px; box-shadow:0 2px 8px rgba(0,0,0,0.35);">▶</span>
             </button>
           </div>
-          <p style="font-size:0.9em; color:#555; margin-top:0.5em;">
-            If the embedded player is unavailable, <a href="https://youtu.be/xrz7_Cn1Xkc?t=2268" target="_blank" rel="noopener" style="color:#274472;">watch the recording on YouTube from 37:48</a>.
-          </p>
+          </section>
 
-          <p><span style="color: #111; font-size: 1.5em; font-weight: bold;">Talks</span><br></p>
+          <section class="talks-section" aria-labelledby="talks-heading">
+          <p><span id="talks-heading" style="color: #111; font-size: 1.5em; font-weight: bold;">Talks</span><br></p>
           <p style="font-size:0.95em; color:#555; margin-top:0.5em;"><sup style="color:#eb9d17; font-size:0.6em; vertical-align:-0.05em; margin-left:0.18em;">★</sup> Invited talks, contributed talks for the rest</p>
           <ul style="margin-bottom: 0;">
             <li style="margin-bottom: 0.5em;">
@@ -224,10 +257,10 @@
               <em>DAMOP, Virtual, Jun 2021.</em>
             </li>
           </ul>
+          </section>
 
-          <p style="font-size:0.95em; color:#555; margin-top:0.5em;"></p>
-
-          <p><span style="color: #111; font-size: 1.5em; font-weight: bold;">Posters</span><br></p>
+          <section class="posters-section" aria-labelledby="posters-heading">
+          <p><span id="posters-heading" style="color: #111; font-size: 1.5em; font-weight: bold;">Posters</span><br></p>
           <ul style="margin-bottom: 0;">
             <li style="margin-bottom: 0.5em;">
               <span style="font-weight:600; color:#274472;">Cavity-mediated spin interactions and coherence protection for solid-state spin ensemble</span><br>
@@ -250,6 +283,8 @@
               <em>Quantum-Limited Metrology and Sensing, WE-Heraeus-Seminar, Bonn, Germany, Feb 2017.</em>
             </li>
           </ul>
+          </section>
+          </div>
 
         </div>
       </article>
